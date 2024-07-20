@@ -1,0 +1,15 @@
+.size-img{
+    width: 100%;
+    height: 375px;
+    border: 1px solid none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-bg{
+    width: 100%;
+    height: 65vh;
+    background-color: antiquewhite;
+    border: 1px solid none;
+    border-radius: 1rem;
+}
