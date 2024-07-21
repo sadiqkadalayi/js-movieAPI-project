@@ -8,6 +8,7 @@ const displayFrom = form1.addEventListener("submit", (e) => {
   e.preventDefault();
   ersaePrevious();
   const val = form1.querySelector("input").value;
+  
   seachQuery = val;
   console.log(val);
   movieAPI(val);
@@ -51,8 +52,25 @@ const displayImage = (movie) => {
     removeBlnkedStartedBG();
     divAndTagsCreations(src,movName,slicedSummary,movieLink);   
   }
-  sessionExp(seachQuery);
+  sessionExp(seachQuery).then(()=>{
+    alert("Do you want to search new movei ?")
+  }).then(()=>{
+    const promtKey = prompt("enter the key");
+    promtkeyValue = promtKey;
+    
+  }).then(()=>{
+    promotkeyfn(promtkeyValue);
+  });
 };
+
+const promotkeyfn = (inp) => {
+  form1.querySelector('input').value="";
+  form1.querySelector('input').value=inp;
+}
+
+
+let promtkeyValue = ""
+console.log(promtkeyValue);
 
 
 const removeBlnkedStartedBG = ()=>{
@@ -119,7 +137,8 @@ const sessionExp = (MovieName) => {
   return new Promise((resolve,reject)=>{
     if(imageContainer){
       setTimeout(()=>{
-        resolve(confirm(sessionExpMsg(MovieName),window.location.reload()));
+        // resolve(confirm(sessionExpMsg(MovieName),window.location.reload()));
+        resolve(confirm(sessionExpMsg(MovieName)))
       },180000);
     }else{
       reject(alert("wrong"));
